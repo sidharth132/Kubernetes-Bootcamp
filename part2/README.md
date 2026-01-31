@@ -4,17 +4,17 @@ In this video we move ahead with Kubernetes concepts
 First we will discuss Kubernetes Architecture and try to understand what happens under the hood when you run `kubectl run nginx --image=nginx`
 
 ## Create CSR
-openssl genrsa -out gunjan.key 2048
-openssl req -new -key gunjan.key -out gunjan.csr -subj "/CN=gunjan/O=group1"
+openssl genrsa -out sidharth.key 2048
+openssl req -new -key sidharth.key -out sidharth.csr -subj "/CN=sidharth/O=group1"
 
 ## Sign CSE with Kubernetes CA
-cat gunjan.csr | base64 | tr -d '\n'
+cat sidharth.csr | base64 | tr -d '\n'
 
 ```
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
 metadata:
-  name: gunjan
+  name: sidharth
 spec:
   request: BASE64_CSR
   signerName: kubernetes.io/kube-apiserver-client
@@ -22,9 +22,9 @@ spec:
   - client auth
 ```
 kubectl apply -f csr.yaml
-kubectl certificate approve gunjan
+kubectl certificate approve 
 
-kubectl get csr gunjan -o jsonpath='{.status.certificate}' | base64 --decode > gunjan.crt
+kubectl get csr sidharth -o jsonpath='{.status.certificate}' | base64 --decode > sidharth.crt
 
 ## Role and role binding
 ```
@@ -45,7 +45,7 @@ metadata:
   namespace: default
 subjects:
 - kind: User
-  name: gunjan
+  name: sidharth
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
@@ -53,10 +53,10 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 ### setup kubeconfig
-kubectl config set-credentials gunjan --client-certificate=gunjan.crt --client-key=gunjan.key
+kubectl config set-credentials sidharth --client-certificate=sidharth.crt --client-key=sidharth.key
 kubectl config get-contexts
-kubectl config set-context gunjan-context --cluster=kubernetes --namespace=default --user=gunjan
-kubectl config use-context gunjan-context
+kubectl config set-context sidharth-context --cluster=kubernetes --namespace=default --user=sidharth
+kubectl config use-context sidharth-context
 
 
 ### Merging multiple KubeConfig files
