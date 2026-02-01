@@ -56,6 +56,7 @@ roleRef:
 kubectl config set-credentials sidharth --client-certificate=sidharth.crt --client-key=sidharth.key
 kubectl config get-contexts
 kubectl config set-context sidharth-context --cluster=kubernetes --namespace=default --user=sidharth
+kubectl config get-contexts
 kubectl config use-context sidharth-context
 
 
