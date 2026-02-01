@@ -22,7 +22,7 @@ spec:
   - client auth
 ```
 kubectl apply -f csr.yaml
-kubectl certificate approve 
+kubectl certificate approve sidharth
 
 kubectl get csr sidharth -o jsonpath='{.status.certificate}' | base64 --decode > sidharth.crt
 
