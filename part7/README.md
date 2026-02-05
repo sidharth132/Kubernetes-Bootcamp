@@ -54,7 +54,7 @@ kubectl create secret generic my-basic-auth-secret \
 
 ```
 kubectl create secret generic my-ssh-key-secret \
---from-file=ssh-privatekey=/path/to/.ssh/id_rsa \
+--from-file=ssh-privatekey=/root/.ssh/id_rsa \
 --type=kubernetes.io/ssh-auth
 
 ```
