@@ -136,3 +136,4 @@ spec:
     - name: shared-data
       mountPath: /usr/share/nginx/html
 ```      
+# kubectl exec multi-container-pod -- cat /usr/share/nginx/html/index.html
