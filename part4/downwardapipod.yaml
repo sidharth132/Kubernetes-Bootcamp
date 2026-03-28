@@ -29,3 +29,6 @@ spec:
               fieldPath: spec.serviceAccountName
   restartPolicy: Never
 
+
+
+kubectl exec -it nginx-envars-fieldref -- printenv
