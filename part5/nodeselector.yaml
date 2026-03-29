@@ -8,3 +8,7 @@ spec:
     image: nginx
   nodeSelector:
     workload: wasm
+
+
+
+    kubectl label nodes node01 workload=wasm
