@@ -9,3 +9,8 @@ spec:
   ports:
   - port: 80
     targetPort: 80
+
+
+
+Switch Traffic (Blue → Green)
+    kubectl patch service nginx-service -p '{"spec":{"selector":{"app":"nginx","version":"green"}}}'
