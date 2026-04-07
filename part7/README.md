@@ -87,6 +87,6 @@ data:
 ### Image pull secrets
 
 ```
-docker buildx build --platform linux/amd64 -t saiyam911/bootcamp-demo:v1 . --push
-kubectl create secret docker-registry pullsec --docker-username saiyam911 --docker-password $SECRET --docker-email saiyam911@gmail.com
+docker buildx build --platform linux/amd64 -t sidharthkr175/privaterepo:v1 . --push
+kubectl create secret docker-registry pullsec --docker-username sidharthkr175 --docker-password $SECRET --docker-email sidharth13feb@gmail.com
 ```
