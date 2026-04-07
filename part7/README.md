@@ -84,10 +84,32 @@ data:
 ```
 
 
-### Image pull secrets
+### Image pull secrets to (Docker hub)
 1st create Env variable banana (temporary secret)
+
 export SECRET="your_docker_password"
+
+docker login 
+
 ```
 docker buildx build --platform linux/amd64 -t sidharthkr175/privaterepo:v1 . --push
 kubectl create secret docker-registry pullsec --docker-username sidharthkr175 --docker-password $SECRET --docker-email sidharth13feb@gmail.com
 ```
+### Image pull secrets to (ACR)
+1st create Env variable banana (temporary secret)
+
+export SECRETS="your_docker_password_ACR"
+
+'''
+docker login sidharthaksregistry.azurecr.io
+
+#az acr login --name sidharthaksregistry
+
+docker buildx build --platform linux/amd64 -t sidharthaksregistry.azurecr.io/bootcamp-demo:v1 . --push
+
+docker pull sidharthaksregistry.azurecr.io/bootcamp-demo:v1
+
+kubectl create secret docker-registry acr-secret --docker-server=sidharthaksregistry.azurecr.io --docker-username=sidharthaksregistry --docker-password=$SECRETS
+
+
+'''
