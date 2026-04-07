@@ -85,7 +85,8 @@ data:
 
 
 ### Image pull secrets
-
+1st create Env variable banana (temporary secret)
+export SECRET="your_docker_password"
 ```
 docker buildx build --platform linux/amd64 -t sidharthkr175/privaterepo:v1 . --push
 kubectl create secret docker-registry pullsec --docker-username sidharthkr175 --docker-password $SECRET --docker-email sidharth13feb@gmail.com
