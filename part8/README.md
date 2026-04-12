@@ -47,6 +47,8 @@ Now you will see `eth@9` -> after `@` there will be a number and you can then se
 you will be able to see the same network namespace after link
 These are the veth pairs or based on the CNI 
 
+route ( check gateway between 2 node)
+
 
 
 ## Services 
