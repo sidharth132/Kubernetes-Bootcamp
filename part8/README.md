@@ -118,6 +118,12 @@ ssh onto the node where the pod is deployed and the change the /etc/hosts file.
 
 ## Nodeport check via iptables
 ```
+kubectl run nginx --image=nginx --port=80
+kubectl expose pod nginx --type=NodePort --port=80
+
+kubectl create deployment nginx --image=nginx
+kubectl expose deployment nginx --type=NodePort --port=80
+
 sudo iptables -t nat -L -n -v | grep -e NodePort -e KUBE
 sudo iptables -t nat -L -n -v | grep 31188
 ```
