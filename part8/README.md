@@ -68,7 +68,7 @@ kubectl get ep
 
 ##Headless Service
 ```
-kubectl create -f tatefulset.yaml
+kubectl create -f statefulset.yaml
 kubectl apply -f svc.yaml
 ```
 Check 
