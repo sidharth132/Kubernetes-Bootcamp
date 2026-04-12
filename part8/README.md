@@ -18,6 +18,7 @@ spec:
 Commands 
 
 ```
+1st ssh node1 ( need to ssh node in which workload is runing)
 ip netns list
 
 ```
