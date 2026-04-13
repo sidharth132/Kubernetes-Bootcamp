@@ -126,4 +126,21 @@ kubectl expose deployment nginx --type=NodePort --port=80
 
 sudo iptables -t nat -L -n -v | grep -e NodePort -e KUBE
 sudo iptables -t nat -L -n -v | grep 31188
+
 ```
+## Loadbalancer 
+kubectl expose deployment nginx --type=LoadBalancer --port=80
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80        # service port
+      targetPort: 80  # container port
+
+      
