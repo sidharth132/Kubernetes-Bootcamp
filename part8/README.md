@@ -124,6 +124,8 @@ kubectl expose pod nginx --type=NodePort --port=80
 kubectl create deployment nginx --image=nginx
 kubectl expose deployment nginx --type=NodePort --port=80
 
+curl http://localhost:NodePort
+
 sudo iptables -t nat -L -n -v | grep -e NodePort -e KUBE
 sudo iptables -t nat -L -n -v | grep 31188
 
