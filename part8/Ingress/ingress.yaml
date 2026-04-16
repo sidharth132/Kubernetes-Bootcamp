@@ -22,3 +22,55 @@ spec:
             name: nginx-service
             port:
               number: 80
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: google-services-ingress
+spec:
+  rules:
+  # RULE 1: Host-based routing for Gmail
+  - host: "mail.google.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: gmail-service
+            port:
+              number: 80
+
+  # RULE 2: Combined Host & Path routing for Google Docs
+  - host: "docs.google.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/spreadsheets"  # Path-based: goes to Sheets
+        backend:
+          service:
+            name: sheets-service
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/presentation"  # Path-based: goes to Slides
+        backend:
+          service:
+            name: slides-service
+            port:
+              number: 80
+
+  # RULE 3: Wildcard Host-based routing
+  - host: "*.google.com"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: general-google-service
+            port:
+              number: 80
