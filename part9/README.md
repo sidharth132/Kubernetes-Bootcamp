@@ -138,7 +138,8 @@ volumes:
     path: /etc/kubernetes/demo
   name: admission
 
-``` 
+```
+crictl -ps -a  
 
 Test and Verify
 ```
