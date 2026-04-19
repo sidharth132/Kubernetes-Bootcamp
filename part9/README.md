@@ -5,10 +5,17 @@ find the cluster name from the kubeconfig file
 export CLUSTER_NAME=
 
 export APISERVER=$(kubectl config view -o jsonpath='{.clusters[0].cluster.server}')
-curl --cacert /etc/kubernetes/pki/ca.crt $APISERVER/version
-curl --cacert /etc/kubernetes/pki/ca.crt $APISERVER/v1/deployments
+curl --cacert /etc/kubernetes/pki/ca.crt $APISERVER/version   #through cacert will tried to authentication .
+curl --cacert /etc/kubernetes/pki/ca.crt $APISERVER/v1/deployments #through cacert will tried to list deployments .
 ```
 The above didn't work and we need to authenticate, so let's use the first client cert. Before that create the client and the key file base64 -d from kubeconfig file
+
+kubectl config view --raw # call cacert 
+
+echo "client-certificate-data" | base 64 -d 
+echo "client-key-data" | base 64 -d 
+vi client # save it 
+vi key # save key 
 ```
 curl --cacert /etc/kubernetes/pki/ca.crt --cert client --key key $APISERVER/apis/apps/v1/deployments 
 ```
