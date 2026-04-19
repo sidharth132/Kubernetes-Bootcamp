@@ -74,6 +74,9 @@ kubectl create serviceaccount my-service-account
 serviceaccount/my-service-account created
 controlplane $ kubectl get secrets -o json | jq -r '.items[] | select(.type=="kubernetes.io/service-account-token" and .metadata.annotations."kubernetes.io/service-account.name" == "my-service-account")'
 
+kubectl create sa sidharth
+kubectl create token sidharth
+kubectl create token sidharth --duration=1000h
 
 ## Valideing admission policy
 ```
