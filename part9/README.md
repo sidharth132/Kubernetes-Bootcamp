@@ -125,7 +125,7 @@ cd imagepolicy
 mv * ..
 cd ..
 ls
-vi etc/kubernetes/manifests/kube-apiserver.yaml
+vi /etc/kubernetes/manifests/kube-apiserver.yaml
 than add below info
 ```
 - --admission-control-config-file=/etc/kubernetes/demo/admission.json
