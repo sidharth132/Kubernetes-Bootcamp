@@ -117,9 +117,12 @@ git clone https://github.com/saiyam1814/imagepolicy.git
 mkdir /etc/kubernetes/demo
 cp -r imagepolicy/ /etc/kubernetes/demo
 cd /etc/kubernetes/demo
+cd imagepolicy
+mv * ..
+cd ..
 ls
-
-
+vi etc/kubernetes/manifests/kube-apiserver.yaml
+than add below info
 ```
 - --admission-control-config-file=/etc/kubernetes/demo/admission.json
 - --enable-admission-plugins=NodeRestriction,ImagePolicyWebhook
