@@ -10,7 +10,7 @@ curl --cacert /etc/kubernetes/pki/ca.crt $APISERVER/v1/deployments #through cace
 ```
 The above didn't work and we need to authenticate, so let's use the first client cert. Before that create the client and the key file base64 -d from kubeconfig file
 
-kubectl config view --raw # call cacert 
+kubectl config view --raw # to get client-certificate-data & client-key-data
 
 echo "client-certificate-data" | base 64 -d 
 echo "client-key-data" | base 64 -d 
