@@ -143,7 +143,7 @@ volumes:
   name: admission
 
 ```
-crictl -ps -a  
+crictl ps -a  
 
 Test and Verify
 ```
