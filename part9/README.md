@@ -12,8 +12,8 @@ The above didn't work and we need to authenticate, so let's use the first client
 
 kubectl config view --raw # to get client-certificate-data & client-key-data
 
-echo "client-certificate-data" | base 64 -d 
-echo "client-key-data" | base 64 -d 
+echo "client-certificate-data" | base64 -d 
+echo "client-key-data" | base64 -d 
 vi client # save it 
 vi key # save key 
 ```
@@ -77,6 +77,7 @@ controlplane $ kubectl get secrets -o json | jq -r '.items[] | select(.type=="ku
 kubectl create sa sidharth
 kubectl create token sidharth
 kubectl create token sidharth --duration=1000h
+echo "TOKEN" | cut -d "." -f2 | tr '_-' '/+' | base64 -d 2>/dev/null | jq
 
 ## Valideing admission policy
 ```
