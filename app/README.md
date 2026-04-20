@@ -67,22 +67,23 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 kubectl get secret -n argocd argocd-initial-admin-secret -oyaml
 
 ```
+# if you don't have domain than use below wildcard domain 
 ip.nip.io || ip.xip.io # wildcard domain
 
-ping demo ip.nip.io
+ping demo.ip.nip.io
 
 kubectl get certificate -oyaml
 kubectl get challenges
 kubectl get clusterissuer -oyaml
 
-1. Install k6 Operator on AKS
+**1. Install k6 Operator on AKS**
 
 kubectl apply -f https://github.com/grafana/k6-operator/releases/latest/download/operator.yaml
 
 Check it:
 kubectl get pods -n k6-operator-system
 
-2. Create your k6 test script
+**2. Create your k6 test script**
 
    k6s run load.js
    
