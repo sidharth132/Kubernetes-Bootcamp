@@ -74,3 +74,15 @@ ping demo ip.nip.io
 kubectl get certificate -oyaml
 kubectl get challenges
 kubectl get clusterissuer -oyaml
+
+1. Install k6 Operator on AKS
+
+kubectl apply -f https://github.com/grafana/k6-operator/releases/latest/download/operator.yaml
+
+Check it:
+kubectl get pods -n k6-operator-system
+
+2. Create your k6 test script
+
+   k6s run load.js
+   
