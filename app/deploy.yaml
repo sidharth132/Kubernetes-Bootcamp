@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: ttl.sh/kubesimplify/app:10h
+        image: sidharthkr175/app:latest
         imagePullPolicy: Always
         env:
         - name: DB_USERNAME
