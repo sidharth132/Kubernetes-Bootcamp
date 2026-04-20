@@ -68,3 +68,9 @@ kubectl get secret -n argocd argocd-initial-admin-secret -oyaml
 
 ```
 ip.nip.io || ip.xip.io # wildcard domain
+
+ping demo ip.nip.io
+
+kubectl get certificate -oyaml
+kubectl get challenges
+kubectl get clusterissuer -oyaml
