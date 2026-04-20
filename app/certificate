@@ -7,6 +7,6 @@ spec:
   issuerRef:
     name: production-app
     kind: ClusterIssuer
-  commonName: demo.kubesimplify.com
+  commonName: demo.sidops.shop
   dnsNames:
-  - demo.kubesimplify.com
+  - demo.sidops.shop
