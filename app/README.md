@@ -5,6 +5,10 @@ kubectl get nodes -o json | grep architecture # for architecture check
 
 docker buildx build --platform linux/arm64 -t sidharthkr175/app:latest --push .
 
+docker buildx imagetools inspect sidharthkr175/app:latest | Select-String Platform  # check Platform for powershell 
+
+docker buildx imagetools inspect sidharthkr175/app:latest | grep Platform # check platform for bash
+
 ## Install cloudnative PG
 ```
 kubectl apply --server-side -f \
