@@ -1,9 +1,14 @@
 ## Create image
-` docker build --no-cache --platform=linux/amd64 -t ttl.sh/saiyam/demo:10h .   `
+` docker build --no-cache --platform=linux/amd64 -t ttl.sh/kubesimplify/app:10h .
+`
+kubectl get nodes -o json | grep architecture # for architecture check 
+
+docker buildx build --platform linux/arm64 -t sidharthkr175/app:latest --push .
+
 ## Install cloudnative PG
 ```
 kubectl apply --server-side -f \
-  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.23/releases/cnpg-1.23.1.yaml
+  https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.29/releases/cnpg-1.29.0.yaml   # install custom resource 
 ```
 ## create Database cluster
 `kubectl apply -f postgres-cluster.yaml`
