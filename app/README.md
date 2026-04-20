@@ -67,3 +67,4 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}
 kubectl get secret -n argocd argocd-initial-admin-secret -oyaml
 
 ```
+ip.nip.io || ip.xip.io # wildcard domain
