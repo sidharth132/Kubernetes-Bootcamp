@@ -95,9 +95,9 @@ spec:
   issuerRef:
     name: production-app
     kind: ClusterIssuer
-  commonName: demo.kubesimplify.com
+  commonName: demo.sidops.shop
   dnsNames:
-  - demo.kubesimplify.com 
+  - demo.sidops.shop 
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -109,7 +109,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: demo.kubesimplify.com
+  - host: demo.sidops.shop
     http:
       paths:
       - path: /
