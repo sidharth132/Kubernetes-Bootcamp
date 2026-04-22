@@ -80,9 +80,10 @@ kubectl get clusterissuer -oyaml
 
 kubectl apply -k https://github.com/grafana/k6-operator/config/default
 
-Check it:
+# Check it:
 kubectl get pods -n k6-operator-system
 
+# than create configMap 
 kubectl create configmap k6-script --from-file=load.js
 
 kubectl apply -f k6-test.yaml
