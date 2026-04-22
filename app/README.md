@@ -3,7 +3,7 @@
 `
 kubectl get nodes -o json | grep architecture # for architecture check 
 
-docker buildx build --platform linux/arm64 -t sidharthkr175/app:latest --push .
+docker buildx build --platform linux/amd64 -t sidharthkr175/app:latest --push .
 
 docker buildx imagetools inspect sidharthkr175/app:latest | Select-String Platform  # check Platform for powershell 
 
@@ -78,10 +78,14 @@ kubectl get clusterissuer -oyaml
 
 **1. Install k6 Operator on AKS**
 
-kubectl apply -f https://github.com/grafana/k6-operator/releases/latest/download/operator.yaml
+kubectl apply -k https://github.com/grafana/k6-operator/config/default
 
 Check it:
 kubectl get pods -n k6-operator-system
+
+kubectl create configmap k6-script --from-file=load.js
+
+kubectl apply -f k6-test.yaml
 
 **2. Create your k6 test script**
 
