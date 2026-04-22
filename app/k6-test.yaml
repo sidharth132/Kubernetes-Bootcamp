@@ -1,0 +1,10 @@
+apiVersion: k6.io/v1alpha1
+kind: TestRun
+metadata:
+  name: sidops-load-test
+spec:
+  parallelism: 1
+  script:
+    configMap:
+      name: k6-script
+      file: load.js
