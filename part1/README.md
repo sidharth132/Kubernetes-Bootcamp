@@ -8,4 +8,5 @@
 
 Kubernetes 
 =========
-kubectl run nginx --image=nginx 
+1. crictl ps # use for check container status
+2. kubectl run nginx --image=nginx 
