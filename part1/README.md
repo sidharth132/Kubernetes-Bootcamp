@@ -4,6 +4,8 @@ lsns -p pid
 systemd-cgls --no-pager
 cat /sys/fs/cgroup/memory/system.slice/docker-5ba642ac2146b6d7f2c538d673a480f2ab6a4cec8142eae034286fdefcb5d024.scope/memory.stat
 
+cat memory.stat
+
 Kubernetes 
 =========
 kubectl run nginx --image=nginx 
