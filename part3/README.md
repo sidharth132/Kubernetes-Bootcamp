@@ -54,7 +54,7 @@ spec:
   initContainers:
   - name: bootcamp-init
     image: busybox
-    command: ['sh', '-c', 'wget -O /usr/share/data/index.html https://myntra.com']
+    command: ['sh', '-c', 'wget -O /usr/share/data/index.html https://example.com']
     volumeMounts:
     - name: shared-data
       mountPath: /usr/share/data
