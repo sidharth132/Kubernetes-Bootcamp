@@ -66,7 +66,7 @@ kubectl config use-context sidharth-context
 ### Merging multiple KubeConfig files
 export KUBECONFIG=/path/to/first/config:/path/to/second/config:/path/to/third/config
 
-**Step D: team1 kubeconfig**
+**Step D: sidharth kubeconfig**
 
 kubectl config --kubeconfig=sidharth-kubeconfig \
 set-cluster kubernetes \
