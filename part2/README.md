@@ -1,3 +1,6 @@
+
+cat ~/.kube/config
+
 In this video we move ahead with Kubernetes concepts 
 
 ## Kubernetes Architecture 
@@ -63,7 +66,28 @@ kubectl config use-context sidharth-context
 ### Merging multiple KubeConfig files
 export KUBECONFIG=/path/to/first/config:/path/to/second/config:/path/to/third/config
 
+**Step D: team1 kubeconfig**
 
+kubectl config --kubeconfig=sidharth-kubeconfig \
+set-cluster kubernetes \
+--server=https://172.30.1.2:6443 \
+--certificate-authority=/etc/kubernetes/pki/ca.crt \
+--embed-certs=true
+
+kubectl config --kubeconfig=sidharth-kubeconfig \
+set-credentials sidharth \
+--client-certificate=sidharth.crt \
+--client-key=sidharth.key \
+--embed-certs=true
+
+kubectl config --kubeconfig=sidharth-kubeconfig \
+set-context sidharth-context \
+--cluster=kubernetes \
+--namespace=default \
+--user=sidharth
+
+kubectl config --kubeconfig=sidharth-kubeconfig \
+use-context sidharth-context
 
 ========================================
 
