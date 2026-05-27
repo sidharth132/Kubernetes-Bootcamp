@@ -14,6 +14,8 @@ curl http://localhost:8080/this-node-status.json
 In Kubernetes when you launch a pod, there is also a pause container that gets spinned up. You can find the pauce.c file [here]()
 ctr --namespace k8s.io containers list | grep pause
 
+https://github.com/kubernetes/kubernetes/blob/master/build/pause/linux/pause.c
+
 
 ##PDB
 Create deployment
