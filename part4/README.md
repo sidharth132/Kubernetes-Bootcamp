@@ -28,6 +28,9 @@ kubectl get pods -w
 ###DownwardAPI
 kubectl apply -f downwardapipod.yaml
 
+### node drain 
+kubectl drain <node-name> --ignore-daemonsets
+
 
 ### QOS 
 kubectl get pods nginx-guaranteed -oyaml | grep qos
